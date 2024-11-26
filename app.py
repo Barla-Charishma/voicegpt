@@ -1,10 +1,10 @@
-from openai import OpenAI 
+from openai import OpenAI
 from apikey import api_data 
 import os
 import speech_recognition as sr 
 import pyttsx3 
 import webbrowser
-Model='gpt-4o'
+Model='gpt-3.5-turbo-1106'
 client =OpenAI(api_key=api_data)
 
 def Reply(question):
@@ -25,7 +25,7 @@ engine.setProperty('voice',voices[0].id)
 def speak(text):
     engine.say(text)
     engine.runAndWait()
-speak("hello how are you?")
+speak("hello Teja...This is Your VoiceBot..How can i help you?")
 
 def takeCommand():
     r = sr.Recognizer()
@@ -38,7 +38,7 @@ def takeCommand():
         query = r.recognize_google(audio,language = 'en-in')
         print("User Said:{} \n".format(query))
     except Exception as e:
-        print("Say tgat again....")
+        print("Say that again....")
         return "None"
     return query 
 if __name__=='__main__':
